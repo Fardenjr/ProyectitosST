@@ -1,0 +1,127 @@
+/* 1. Variables y Reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --font: 'Poppins', sans-serif;
+  --bg: #000;
+  --text: #eee;
+  --accent: #1abc9c;
+  --card-bg: #111;
+  --transition: 0.3s ease;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* 2. Header */
+.proj-header {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.proj-header h1 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+/* 3. Grid de proyectos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* 4. Tarjetas */
+.project-card {
+  background-color: var(--card-bg);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+.project-card img {
+  width: 100%;
+  object-fit: cover;
+  height: 160px;
+}
+
+.card-content {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+}
+
+.card-content p {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  align-self: flex-start;
+  background-color: var(--accent);
+  color: #000;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color var(--transition);
+}
+
+.btn:hover {
+  background-color: #16a085;
+}
+
+/* 5. Footer */
+.proj-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* 6. Responsive */
+@media (max-width: 600px) {
+  .proj-header h1 {
+    font-size: 2rem;
+  }
+  
+  .project-card img {
+    height: 140px;
+  }
+}

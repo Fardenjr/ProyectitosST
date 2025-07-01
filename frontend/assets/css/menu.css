@@ -1,0 +1,52 @@
+/* Navegación principal */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-nav {
+  margin-top: 1.5rem;
+}
+
+.site-nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+.site-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color var(--transition);
+}
+
+.site-nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--color-card);
+  transition: width var(--transition);
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.site-nav a:hover {
+  color: var(--color-primary-light);
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+/* Espaciado entre secciones para anclaje */
+section {
+  padding-top: 4rem;    /* deja espacio para el header */
+  margin-top: -4rem;    /* neutraliza salto al anclar */
+}

@@ -1,0 +1,325 @@
+/*---------------------------------------------------
+1) Import & Variables
+---------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --font: 'Poppins', sans-serif;
+  --bg: #000;
+  --text: #eee;
+  --accent: #1abc9c;
+  --nav-width: 220px;
+  --transition: 0.3s ease;
+  --shadow: rgba(0,0,0,0.5);
+}
+
+/*---------------------------------------------------
+2) Reset & Base
+---------------------------------------------------*/
+*,
+*::before,
+*::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  display: flex;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/*---------------------------------------------------
+3) Menú lateral
+---------------------------------------------------*/
+.site-nav {
+  position: fixed; top: 0; left: 0;
+  width: var(--nav-width); height: 100vh;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+  display: flex; flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;        /* reducido */
+  gap: 1rem;              /* reducido */
+  transform: translateX(0);
+  transition: transform var(--transition);
+  z-index: 20;
+}
+.site-nav.collapsed {
+  transform: translateX(-100%);
+}
+
+.nav-toggle {
+  background: none; border: none;
+  color: var(--text); font-size: 1.2rem;
+  cursor: pointer; z-index: 21;
+}
+
+.avatar-sm img {
+  width: 80px; height: 80px;
+  border-radius: 50%; object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+.nav__list {
+  list-style: none; width: 100%; flex-grow: 1;
+  display: flex; flex-direction: column; align-items: center;
+}
+.nav__list li + li {
+  margin-top: 0.5rem;    /* reducido */
+}
+.nav__list a {
+  display: flex; align-items: center; gap: .5rem;
+  width: 100%;
+  color: var(--text);
+  text-decoration: none; font-weight: 500;
+  padding: .6rem 1rem;
+  transition: background var(--transition), color var(--transition);
+}
+.nav__list a:hover,
+.nav__list a.active {
+  background: var(--accent); color: #000; border-radius: 4px;
+}
+
+/*---------------------------------------------------
+4) Contenido desplazado
+---------------------------------------------------*/
+.site-content {
+  margin-left: var(--nav-width);
+  width: calc(100% - var(--nav-width));
+  transition: margin-left var(--transition);
+}
+.site-content.collapsed {
+  margin-left: 0;
+}
+
+/*---------------------------------------------------
+5) Hero & Avatar grande
+---------------------------------------------------*/
+.site-header { height: 100vh; overflow: hidden; }
+
+.hero {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 0 1rem;
+  position: relative; z-index: 1;
+}
+
+.avatar-container {
+  width: 180px; height: 180px; border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  padding: .5rem; backdrop-filter: blur(8px);
+  margin-bottom: .5rem;          /* reducido */
+  animation: popIn 0.6s forwards;
+}
+.avatar-container img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+}
+
+.hero-text h1 {
+  font-size: 3rem; letter-spacing: 1px;
+  margin-bottom: .25rem;         /* reducido */
+}
+.subtitle {
+  font-size: 1.1rem; opacity: .85;
+  margin-bottom: .5rem;          /* reducido */
+}
+.tagline {
+  font-size: 1.2rem; font-weight: 300;
+  margin-bottom: 1rem;           /* reducido */
+}
+.btn-cta {
+  background: var(--accent); color: #000;
+  padding: .8rem 2rem; border-radius: 50px;
+  font-weight: 500;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+/*---------------------------------------------------
+6) Tech Logos (grid compacto)
+---------------------------------------------------*/
+.tech-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: .75rem;                   /* reducido */
+  max-width: 400px;
+  margin: 1rem auto 0;           /* reducido */
+}
+.tech-logos img {
+  width: 100%; max-width: 60px;
+  background: #fff; padding: 6px; border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.tech-logos img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/*---------------------------------------------------
+7) Iconos sociales
+---------------------------------------------------*/
+.social-icons {
+  display: flex; gap: .75rem;     /* reducido */
+  margin-top: 1rem;               /* reducido */
+}
+.social-icons a {
+  color: #fff; font-size: 1.3rem;
+  transition: transform var(--transition);
+}
+.social-icons a:hover {
+  transform: translateY(-3px);
+}
+
+/*---------------------------------------------------
+8) Secciones & Projects CTA
+---------------------------------------------------*/
+section {
+  padding: 2rem 1rem;            /* reducido */
+}
+.about,
+.about-page,
+.competencies,
+.projects-cta,
+.contact {
+  max-width: 800px; margin: 0 auto;
+}
+
+.about h2,
+.about-page h2,
+.competencies h2,
+.projects-cta h2,
+.contact h2 {
+  font-size: 2rem; color: var(--accent);
+  text-align: center; margin-bottom: 1rem;
+}
+
+.competencies ul { list-style: none; padding: 0; }
+.competencies li {
+  background: rgba(255,255,255,0.05);
+  margin-bottom: .25rem;         /* reducido */
+  padding: .75rem 1rem;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.projects-cta {
+  text-align: center; margin-bottom: 1.5rem;
+}
+.btn-main {
+  background: var(--accent); color: #000;
+  padding: .8rem 1.5rem; border-radius: 4px;
+  text-decoration: none; font-weight: 500;
+  transition: background var(--transition);
+  margin-top: .5rem;            /* añadido */
+}
+.btn-main:hover {
+  background: #16a085;
+}
+
+.contact p { text-align: center; }
+.contact a {
+  color: var(--accent); text-decoration: none; font-weight: 500;
+}
+
+/*---------------------------------------------------
+9) Footer
+---------------------------------------------------*/
+.site-footer {
+  text-align: center; padding: 2rem 1rem;
+  background: rgba(255,255,255,0.05); color: #555;
+}
+
+/*---------------------------------------------------
+10) Animaciones
+---------------------------------------------------*/
+@keyframes popIn {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.1); opacity: 1; }
+ 100%  { transform: scale(1); }
+}
+
+/*---------------------------------------------------
+11) Responsive (<768px)
+---------------------------------------------------*/
+@media (max-width: 768px) {
+  .site-nav {
+    position: relative; flex-direction: row;
+    width: 100%; height: auto; padding: 1rem;
+    backdrop-filter: none; background: rgba(0,0,0,0.7);
+    transform: translateX(0) !important;
+  }
+  .avatar-sm { display: none; }
+  .nav__list {
+    flex-direction: row; gap: 1.5rem; justify-content: center;
+  }
+  .site-content {
+    margin-left: 0; width: 100%;
+  }
+}
+
+
+/*--------------------------------
+Sección “Cosas que no sabías”
+--------------------------------*/
+.did-you-know {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.did-you-know h2 {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.dyk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.dyk-item {
+  background: rgba(255,255,255,0.05);
+  padding: .5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.dyk-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: .5rem;
+}
+
+.dyk-item p {
+  color: var(--text);
+  font-size: .9rem;
+}
+
+.dyk-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+/* Ajustes responsive */
+@media (max-width: 480px) {
+  .dyk-item img {
+    height: 100px;
+  }
+  .dyk-item p {
+    font-size: .8rem;
+  }
+}
