@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diego Rojo – Analista Programador</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pQ2OKYhzXHAM1QNhGyfederUJ5NbK5x5+oCUIWphjGIqP+AIx0t29K+
+dHZmmzVb5VF/YQjGQANhE6RsvF3bqPA==" crossorigin="anonymous" />
+</head>
+<body>
+
+  <!-- Menú lateral -->
+  <nav class="site-nav">
+    <button class="nav-toggle" aria-label="Mostrar u ocultar menú">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="avatar-sm">
+      <img src="assets/img/avatar.jpg" alt="Avatar de Diego Rojo">
+    </div>
+    <ul class="nav__list">
+      <li><a href="about.html"><i class="fas fa-user"></i> Sobre mí</a></li>
+      <li><a href="#habilidades"><i class="fas fa-cogs"></i> Habilidades</a></li>
+      <li><a href="projects.html"><i class="fas fa-briefcase"></i> Proyectos</a></li>
+      <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <div class="site-content">
+    <header class="site-header">
+      <div class="hero">
+        <div class="avatar-container">
+          <img src="assets/img/avatar.jpg" alt="Avatar de Diego Rojo">
+        </div>
+        <div class="hero-text">
+          <h1>Diego Rojo</h1>
+          <p class="subtitle">Estudiante de Analista Programador</p>
+          <p class="tagline">Convirtiendo ideas en código y soluciones.</p>
+          <a href="projects.html" class="btn-cta">Ver Proyectos</a>
+
+          <div class="tech-logos">
+            <img src="assets/img/logos/java.jpg"       alt="Java">
+            <img src="assets/img/logos/python.jpg"     alt="Python">
+            <img src="assets/img/logos/javascript.jpg" alt="JavaScript">
+            <img src="assets/img/logos/html5.jpg"      alt="HTML5">
+            <img src="assets/img/logos/css3.jpg"       alt="CSS3">
+          </div>
+
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <canvas id="particle-canvas"></canvas>
+      </div>
+    </header>
+
+    <main>
+      <section id="habilidades" class="competencies">
+        <h2>Habilidades</h2>
+        <ul>
+          <li>Análisis y diseño orientado a objetos</li>
+          <li>Desarrollo web (HTML5, CSS3, JavaScript)</li>
+          <li>Backend con Java y Python</li>
+          <li>Modelado de bases de datos relacionales</li>
+          <li>Control de versiones con Git</li>
+          <li>Pruebas unitarias y depuración</li>
+          <li>Trabajo en equipo y comunicación</li>
+        </ul>
+      </section>
+
+      <section class="projects-cta">
+        <h2>Proyectos Destacados</h2>
+        <p>Explora todos mis desarrollos y contribuciones</p>
+        <a href="projects.html" class="btn-main">Ver Proyectos →</a>
+      </section>
+
+      <section id="contacto" class="contact">
+        <h2>Contacto</h2>
+        <p>
+          Puedes escribirme a
+          <a href="mailto:diego.rojo@example.com">diego.rojo@example.com</a>
+          o encontrarme en
+          <a href="https://www.linkedin.com/in/diego-rojo" target="_blank">LinkedIn</a>.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Diego Rojo</p>
+    </footer>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
